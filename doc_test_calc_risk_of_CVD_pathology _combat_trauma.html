@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ризик ССС патології – бойова травма</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f4f9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            max-width: 540px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1.6rem 1.8rem 0.4rem 1.8rem;
+        }
+
+        .card-header h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1a4c6e;
+        }
+
+        .badge {
+            background: #e8f0fe;
+            color: #1f6392;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .sub {
+            color: #5c6f82;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            border-left: 3px solid #7fb4d0;
+            padding-left: 12px;
+        }
+
+        .card-body {
+            padding: 1.3rem 1.8rem 1.8rem 1.8rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.4rem;
+        }
+
+        label {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #395f77;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .radio-flex {
+            display: flex;
+            gap: 1.5rem;
+            background: #f8fafd;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            border: 1px solid #e2eaf1;
+        }
+
+        .radio-flex label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: normal;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #267c4a;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 1rem;
+            border: 1px solid #cfdfea;
+            border-radius: 1.2rem;
+            background: white;
+            transition: 0.2s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #267c4a;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(38, 124, 74, 0.1);
+        }
+
+        button {
+            background: #267c4a;
+            color: white;
+            width: 100%;
+            padding: 13px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #1d623b;
+        }
+
+        .result-card {
+            margin-top: 1.8rem;
+            background: #fefefe;
+            border-radius: 1.5rem;
+            border: 1px solid #e5eef5;
+            padding: 1.2rem;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #eff3f8;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            color: #5b6f7e;
+            font-weight: 500;
+        }
+
+        .result-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a435c;
+        }
+
+        .risk-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .risk-high {
+            background: #fce4e1;
+            color: #b13c28;
+        }
+
+        .risk-low {
+            background: #e2f3e9;
+            color: #196f40;
+        }
+
+        .footnote {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #7e93a2;
+            margin-top: 1.4rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid #eef3f8;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="card-header">
+        <h1>🫀 Серцево-судинний ризик <span class="badge">бойова травма</span></h1>
+        <div class="sub">Розрахунок індивідуального ризику вторинної патології ССС
+</div>
+    </div>
+    <div class="card-body">
+        <div class="input-group">
+            <label>📅 Доба після поранення</label>
+            <div class="radio-flex">
+                <label><input type="radio" name="period" value="1-3" checked> 1–3 доба</label>
+                <label><input type="radio" name="period" value="10-14"> 10–14 доба</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>🧪 Загальний білок (г/л)</label>
+            <input type="number" id="protein" value="58" step="1" placeholder="наприклад, 58">
+        </div>
+
+        <div class="input-group">
+            <label>🩸 Глюкоза крові (ммоль/л)</label>
+            <input type="number" id="glucose" value="5.2" step="0.1" placeholder="наприклад, 5.2">
+        </div>
+
+        <button id="calcBtn">Розрахувати індивідуальний ризик</button>
+
+        <div id="resultBlock" class="hidden">
+            <div class="result-card" id="resultContent"></div>
+        </div>
+
+        <div class="footnote">
+            ⚕️ 1-й крок: показник Р (загальний ризик). 2-й крок: Рі = 1 / (1 + е⁻Р) → індивідуальний ризик у %.<br>
+            ▶ Якщо Р > 0,5 або ризик > 50% — високий ризик вторинної патології ССС.
+        </div>
+    </div>
+</div>
+
+<script>
+    const E = 2.71828182846;
+
+    // Логістичне перетворення: Рі = 1 / (1 + e^(-R))
+    function individualRiskPercent(R) {
+        return 100 / (1 + Math.pow(E, -R));
+    }
+
+    function calculateRisk() {
+        const period = document.querySelector('input[name="period"]:checked').value;
+        const protein = parseFloat(document.getElementById('protein').value);
+        const glucose = parseFloat(document.getElementById('glucose').value);
+
+        // Валідація
+        if (isNaN(protein) || protein < 15 || protein > 130) {
+            alert("Будь ласка, введіть коректний рівень загального білка (г/л)");
+            return;
+        }
+        if (isNaN(glucose) || glucose < 1 || glucose > 35) {
+            alert("Будь ласка, введіть коректний рівень глюкози (ммоль/л)");
+            return;
+        }
+
+        let R;   // проміжний показник (загальний ризик)
+        let formula = "";
+
+        if (period === "1-3") {
+            // Р1-3 = 0,71 - 0,013×білок + 0,099×глюкоза
+            R = 0.71 - 0.013 * protein + 0.099 * glucose;
+            formula = "Р1-3 (1–3 доба)";
+        } else {
+            // Р10-14 = 0,610 - 0,009×білок + 0,085×глюкоза
+            R = 0.610 - 0.009 * protein + 0.085 * glucose;
+            formula = "Р10-14 (10–14 доба)";
+        }
+
+        // Індивідуальний ризик у %
+        const percentRisk = individualRiskPercent(R);
+        const isHigh = (R > 0.5 || percentRisk > 50);
+        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Низький ризик";
+        const riskClass = isHigh ? "risk-high" : "risk-low";
+
+        const resultHtml = `
+            <div class="result-row">
+                <span class="result-label">📐 Показник Р (${formula}):</span>
+                <span class="result-value">${R.toFixed(4)}</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">🧮 Індивідуальний ризик (Рі):</span>
+                <span class="result-value">${percentRisk.toFixed(1)}%</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">🩺 Висновок:</span>
+                <span class="result-value"><span class="risk-badge ${riskClass}">${riskLabel}</span></span>
+            </div>
+        `;
+
+        const resultDiv = document.getElementById('resultBlock');
+        document.getElementById('resultContent').innerHTML = resultHtml;
+        resultDiv.classList.remove('hidden');
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', calculateRisk);
+</script>
+</body>
+</html>
