@@ -192,6 +192,13 @@
             border-top: 1px solid #eef3f8;
         }
 
+        .developer {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #5c6f82;
+            margin-top: 0.8rem;
+        }
+
         .hidden {
             display: none;
         }
@@ -201,8 +208,7 @@
 <div class="card">
     <div class="card-header">
         <h1>🫀 Серцево-судинний ризик <span class="badge">бойова травма</span></h1>
-        <div class="sub">Розрахунок індивідуального ризику вторинної патології ССС
-</div>
+        <div class="sub">Розрахунок загального ризику (Р) та індивідуального ризику вторинної патології ССС (за методикою Sydorova et al., 2020)</div>
     </div>
     <div class="card-body">
         <div class="input-group">
@@ -223,15 +229,20 @@
             <input type="number" id="glucose" value="5.2" step="0.1" placeholder="наприклад, 5.2">
         </div>
 
-        <button id="calcBtn">Розрахувати індивідуальний ризик</button>
+        <button id="calcBtn">Розрахувати ризик</button>
 
         <div id="resultBlock" class="hidden">
             <div class="result-card" id="resultContent"></div>
         </div>
 
         <div class="footnote">
-            ⚕️ 1-й крок: показник Р (загальний ризик). 2-й крок: Рі = 1 / (1 + е⁻Р) → індивідуальний ризик у %.<br>
-            ▶ Якщо Р > 0,5 або ризик > 50% — високий ризик вторинної патології ССС.
+            ⚕️ Джерело: Sydorova N.M. et al. "Розрахунок ризику розвитку серцево-судинної патології..." World Science. 2020;2(54):35-42.<br>
+            ▶ Загальний ризик (Р) > 0,5 вказує на високий ризик вторинної патології ССС.<br>
+            ▶ Індивідуальний ризик (%) = 1 / (1 + е⁻Р) – додатковий показник.
+        </div>
+        <div class="developer">
+            👨‍💻 Розробник онлайн-калькулятора: <strong>Ihor Stelmashchuk (doc_1337)</strong><br>
+  📧smart47785@gmail.com
         </div>
     </div>
 </div>
@@ -259,37 +270,37 @@
             return;
         }
 
-        let R;   // проміжний показник (загальний ризик)
-        let formula = "";
+        let R;   // загальний ризик (основний показник)
+        let formulaName = "";
 
         if (period === "1-3") {
             // Р1-3 = 0,71 - 0,013×білок + 0,099×глюкоза
             R = 0.71 - 0.013 * protein + 0.099 * glucose;
-            formula = "Р1-3 (1–3 доба)";
+            formulaName = "Р1-3 (1–3 доба)";
         } else {
             // Р10-14 = 0,610 - 0,009×білок + 0,085×глюкоза
             R = 0.610 - 0.009 * protein + 0.085 * glucose;
-            formula = "Р10-14 (10–14 доба)";
+            formulaName = "Р10-14 (10–14 доба)";
         }
 
-        // Індивідуальний ризик у %
+        // Індивідуальний ризик (додатковий)
         const percentRisk = individualRiskPercent(R);
-        const isHigh = (R > 0.5 || percentRisk > 50);
+        const isHigh = (R > 0.5);
         const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Низький ризик";
         const riskClass = isHigh ? "risk-high" : "risk-low";
 
         const resultHtml = `
             <div class="result-row">
-                <span class="result-label">📐 Показник Р (${formula}):</span>
+                <span class="result-label">📊 Загальний ризик (${formulaName}):</span>
                 <span class="result-value">${R.toFixed(4)}</span>
             </div>
             <div class="result-row">
-                <span class="result-label">🧮 Індивідуальний ризик (Рі):</span>
-                <span class="result-value">${percentRisk.toFixed(1)}%</span>
+                <span class="result-label">🩺 Висновок за Р:</span>
+                <span class="result-value"><span class="risk-badge ${riskClass}">${riskLabel}</span></span>
             </div>
             <div class="result-row">
-                <span class="result-label">🩺 Висновок:</span>
-                <span class="result-value"><span class="risk-badge ${riskClass}">${riskLabel}</span></span>
+                <span class="result-label">➕ Додатково – індивідуальний ризик (Рі):</span>
+                <span class="result-value">${percentRisk.toFixed(1)}%</span>
             </div>
         `;
 
