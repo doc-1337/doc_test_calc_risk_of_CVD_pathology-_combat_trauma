@@ -8,7 +8,7 @@
 *   DOI: [10.31435/rsglobal_ws/28022020/6928](https://doi.org/10.31435/rsglobal_ws/28022020/6928)
 
 ## ⚙️ Як використовувати
-Перейдіть за посиланням: [Посилання на ваш GitHub Pages]
+Перейдіть за посиланням: [https://doc-1337.github.io/doc_test_calc_risk_of_CVD_pathology-_combat_trauma/]
 
 ## 🛠️ Технології
 *   HTML5, CSS3, JavaScript
