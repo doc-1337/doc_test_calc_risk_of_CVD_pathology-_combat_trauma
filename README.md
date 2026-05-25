@@ -18,4 +18,4 @@
 
 ## 📚 Як цитувати
 Якщо ви використовуєте цей калькулятор у вашому дослідженні, будь ласка, цитуйте його за DOI:
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXXXX)
+[![DOI](https://zenodo.org/badge/1236875447.svg)](https://doi.org/10.5281/zenodo.20386967)](https://zenodo.org/badge/1236875447.svg)](https://doi.org/10.5281/zenodo.20386967)
