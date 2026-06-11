@@ -5,214 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Калькулятор ризику вторинної патології ССС</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #f0f4f9;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            padding: 1.5rem;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card {
-            max-width: 540px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 2rem;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-
-        .card-header {
-            padding: 1.6rem 1.8rem 0.4rem 1.8rem;
-        }
-
-        .card-header h1 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #1a4c6e;
-        }
-
-        .badge {
-            background: #e8f0fe;
-            color: #1f6392;
-            font-size: 0.7rem;
-            font-weight: 500;
-            padding: 4px 12px;
-            border-radius: 40px;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-
-        .sub {
-            color: #5c6f82;
-            font-size: 0.85rem;
-            margin-top: 6px;
-            border-left: 3px solid #7fb4d0;
-            padding-left: 12px;
-        }
-
-        .card-body {
-            padding: 1.3rem 1.8rem 1.8rem 1.8rem;
-        }
-
-        .input-group {
-            margin-bottom: 1.4rem;
-        }
-
-        label {
-            font-weight: 500;
-            font-size: 0.85rem;
-            color: #395f77;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .radio-flex {
-            display: flex;
-            gap: 1.5rem;
-            background: #f8fafd;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            border: 1px solid #e2eaf1;
-        }
-
-        .radio-flex label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: normal;
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-
-        input[type="radio"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #267c4a;
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 12px 14px;
-            font-size: 1rem;
-            border: 1px solid #cfdfea;
-            border-radius: 1.2rem;
-            background: white;
-            transition: 0.2s;
-        }
-
-        input[type="number"]:focus {
-            border-color: #267c4a;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(38, 124, 74, 0.1);
-        }
-
-        button {
-            background: #267c4a;
-            color: white;
-            width: 100%;
-            padding: 13px;
-            font-weight: 600;
-            font-size: 1rem;
-            border: none;
-            border-radius: 2rem;
-            cursor: pointer;
-            margin-top: 6px;
-            transition: background 0.2s;
-        }
-
-        button:hover {
-            background: #1d623b;
-        }
-
-        .result-card {
-            margin-top: 1.8rem;
-            background: #fefefe;
-            border-radius: 1.5rem;
-            border: 1px solid #e5eef5;
-            padding: 1.2rem;
-        }
-
-        .result-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid #eff3f8;
-        }
-
-        .result-row:last-child {
-            border-bottom: none;
-        }
-
-        .result-label {
-            font-size: 0.85rem;
-            color: #5b6f7e;
-            font-weight: 500;
-        }
-
-        .result-value {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #1a435c;
-        }
-
-        .risk-badge {
-            display: inline-block;
-            padding: 5px 14px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .risk-high {
-            background: #fce4e1;
-            color: #b13c28;
-        }
-
-        .risk-low {
-            background: #e2f3e9;
-            color: #196f40;
-        }
-
-        .footnote {
-            font-size: 0.7rem;
-            text-align: center;
-            color: #7e93a2;
-            margin-top: 1.4rem;
-            padding-top: 0.8rem;
-            border-top: 1px solid #eef3f8;
-        }
-
-        .developer {
-            font-size: 0.7rem;
-            text-align: center;
-            color: #5c6f82;
-            margin-top: 0.8rem;
-        }
-
-        .hidden {
-            display: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f4f9; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; padding: 1.5rem; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .card { max-width: 560px; width: 100%; background: #ffffff; border-radius: 2rem; box-shadow: 0 12px 28px rgba(0,0,0,0.05); overflow: hidden; }
+        .card-header { padding: 1.6rem 1.8rem 0.4rem 1.8rem; }
+        .card-header h1 { font-size: 1.6rem; font-weight: 600; color: #1a4c6e; }
+        .badge { background: #e8f0fe; color: #1f6392; font-size: 0.7rem; font-weight: 500; padding: 4px 12px; border-radius: 40px; margin-left: 8px; vertical-align: middle; }
+        .sub { color: #5c6f82; font-size: 0.85rem; margin-top: 6px; border-left: 3px solid #7fb4d0; padding-left: 12px; }
+        .card-body { padding: 1.3rem 1.8rem 1.8rem 1.8rem; }
+        .input-group { margin-bottom: 1.4rem; }
+        label { font-weight: 500; font-size: 0.85rem; color: #395f77; margin-bottom: 8px; display: block; }
+        .radio-flex { display: flex; gap: 1.5rem; background: #f8fafd; padding: 0.5rem 1rem; border-radius: 2rem; border: 1px solid #e2eaf1; }
+        .radio-flex label { display: flex; align-items: center; gap: 8px; font-weight: normal; font-size: 0.95rem; margin-bottom: 0; }
+        input[type="radio"] { width: 18px; height: 18px; accent-color: #267c4a; }
+        input[type="number"] { width: 100%; padding: 12px 14px; font-size: 1rem; border: 1px solid #cfdfea; border-radius: 1.2rem; background: white; transition: 0.2s; }
+        input[type="number"]:focus { border-color: #267c4a; outline: none; box-shadow: 0 0 0 3px rgba(38,124,74,0.1); }
+        button { background: #267c4a; color: white; width: 100%; padding: 13px; font-weight: 600; font-size: 1rem; border: none; border-radius: 2rem; cursor: pointer; margin-top: 6px; transition: background 0.2s; }
+        button:hover { background: #1d623b; }
+        .pdf-panel { display: flex; gap: 10px; margin-top: 15px; align-items: center; flex-wrap: wrap; }
+        #patientName { flex: 2; min-width: 180px; margin-top: 0; }
+        .result-card { margin-top: 1.8rem; background: #fefefe; border-radius: 1.5rem; border: 1px solid #e5eef5; padding: 1.2rem; }
+        .result-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.6rem 0; border-bottom: 1px solid #eff3f8; }
+        .result-row:last-child { border-bottom: none; }
+        .result-label { font-size: 0.85rem; color: #5b6f7e; font-weight: 500; }
+        .result-value { font-size: 1rem; font-weight: 600; color: #1a435c; }
+        .risk-badge { display: inline-block; padding: 5px 14px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; }
+        .risk-high { background: #fce4e1; color: #b13c28; }
+        .risk-low { background: #e2f3e9; color: #196f40; }
+        .footnote { font-size: 0.7rem; text-align: center; color: #7e93a2; margin-top: 1.4rem; padding-top: 0.8rem; border-top: 1px solid #eef3f8; }
+        .developer { font-size: 0.7rem; text-align: center; color: #5c6f82; margin-top: 0.8rem; }
+        .hidden { display: none; }
+        .decision-support { background: #e8f4f8; border-left: 5px solid #267c4a; padding: 12px; border-radius: 12px; margin-top: 12px; font-size: 0.85rem; }
+        .info-recommend { background: #fff8e7; border-left: 5px solid #f0ad4e; padding: 12px; border-radius: 12px; margin-top: 12px; font-size: 0.85rem; }
     </style>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#b13c28">
 </head>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(reg => console.log('SW registered', reg))
-      .catch(err => console.log('SW failed', err));
-  }
-</script>
 <body>
 <div class="card">
     <div class="card-header">
@@ -238,21 +64,27 @@
             <input type="number" id="glucose" value="5.2" step="0.1" placeholder="наприклад, 5.2">
         </div>
 
+        <div class="pdf-panel">
+            <input type="text" id="patientName" placeholder="ПІБ пацієнта (для протоколу)">
+            <button id="pdfBtn" style="background: #5f7f9a; width: auto; padding: 10px 20px;">📄 Зберегти протокол (PDF)</button>
+        </div>
+
         <button id="calcBtn">Розрахувати ризик</button>
 
         <div id="resultBlock" class="hidden">
             <div class="result-card" id="resultContent"></div>
+            <div id="decisionBlock"></div>
         </div>
 
         <div class="footnote">
-            ⚕️ Джерело: Сидорова Н. М. та співавт. Розрахунок ризику розвитку серцево-судинної патології, що має тривалий перебіг, у постраждалого з бойовою травмою: клінічний випадок. World Science. 2020. №2(54). Vol.1. С. 35-42. <a href="https://doi.org/10.31435/rsglobal_ws/28022020/6928" target="_blank">DOI: 10.31435/rsglobal_ws/28022020/6928</a><br>
+            ⚕️ Джерело: Сидорова Н. М. та співавт. Розрахунок ризику розвитку серцево-судинної патології... World Science. 2020;2(54):35-42.<br>
+            ▶ Під вторинною патологією ССС у даній моделі маються на увазі: порушення ритму (синусова тахікардія, фібриляція передсердь), тромбоемболічні ускладнення, міокардит, гострий коронарний синдром метаболічного ґенезу, стрес-індукована кардіоміопатія.<br>
             ▶ Загальний ризик (Р) > 0,5 вказує на високий ризик вторинної патології ССС.<br>
             ▶ Індивідуальний ризик (%) = 1 / (1 + е⁻Р) – додатковий показник.
         </div>
         <div class="developer">
-            👨‍💻 Розробник онлайн-калькулятора: 
-            <strong> Ігор Стельмащук (doc-1337)</strong><br>
-            📧 smart47785@gmail.com 
+            👨‍💻 Розробник онлайн-калькулятора: <strong>Ігор Стельмащук</strong><br>
+            📧 smart47785@gmail.com
         </div>
     </div>
 </div>
@@ -260,67 +92,98 @@
 <script>
     const E = 2.71828182846;
 
-    // Логістичне перетворення: Рі = 1 / (1 + e^(-R))
     function individualRiskPercent(R) {
         return 100 / (1 + Math.pow(E, -R));
+    }
+
+    function generatePDF() {
+        const resultBlock = document.getElementById('resultBlock');
+        if (resultBlock.classList.contains('hidden')) {
+            alert("Спочатку виконайте розрахунок (натисніть 'Розрахувати ризик')!");
+            return;
+        }
+        const patientName = document.getElementById('patientName').value.trim() || '___________________';
+        const period = document.querySelector('input[name="period"]:checked').value;
+        const protein = document.getElementById('protein').value;
+        const glucose = document.getElementById('glucose').value;
+        const R = parseFloat(document.querySelector('#resultContent .result-row:first-child .result-value').innerText);
+        const percentRisk = parseFloat(document.querySelector('#resultContent .result-row:nth-child(2) .result-value').innerText);
+        const riskText = document.querySelector('#resultContent .risk-badge').innerText;
+        const currentDate = new Date().toLocaleDateString('uk-UA') + ' ' + new Date().toLocaleTimeString('uk-UA');
+        
+        const printWindow = window.open('', '_blank');
+        if (!printWindow) { alert("Дозвольте спливаючі вікна для цього сайту"); return; }
+        printWindow.document.write(`
+            <!DOCTYPE html>
+            <html>
+            <head><meta charset="UTF-8"><title>Протокол ризику ССС</title>
+            <style>body{font-family:system-ui;padding:20px;} table{width:100%;border-collapse:collapse;margin:10px 0;} th,td{border:1px solid #ddd;padding:8px;text-align:left;} th{background:#eef4fa;}</style>
+            </head>
+            <body>
+            <h2>Калькулятор ризику вторинної патології ССС</h2>
+            <p>Дата: ${currentDate}</p>
+            <p><strong>Пацієнт(ка):</strong> ${patientName}</p>
+            <p><strong>Період:</strong> ${period === '1-3' ? '1–3 доба' : '10–14 доба'}</p>
+            <p><strong>Загальний білок:</strong> ${protein} г/л</p>
+            <p><strong>Глюкоза:</strong> ${glucose} ммоль/л</p>
+            <h3>Результати:</h3>
+            <table><th>Показник</th><th>Значення</th></tr>
+            <tr><td>Загальний ризик (Р)</td><td>${R.toFixed(4)}</td></tr>
+            <tr><td>Індивідуальний ризик (Рі)</td><td>${percentRisk.toFixed(1)}%</td></tr>
+            <tr><td>Висновок</td><td>${riskText}</td></tr>
+            </table>
+            <p><em>Примітка: вторинна патологія ССС включає порушення ритму, тромбоемболічні ускладнення, міокардит, гострий коронарний синдром метаболічного ґенезу, стрес-індуковану кардіоміопатію.</em></p>
+            <p>Лікар: _________________________</p>
+            <p style="font-size:0.8rem;">Розробник: Ігор Стельмащук (doc-1337) 📧 smart47785@gmail.com</p>
+            <script>window.onload=function(){window.print();setTimeout(()=>window.close(),500);};<\/script>
+            </body></html>
+        `);
+        printWindow.document.close();
     }
 
     function calculateRisk() {
         const period = document.querySelector('input[name="period"]:checked').value;
         const protein = parseFloat(document.getElementById('protein').value);
         const glucose = parseFloat(document.getElementById('glucose').value);
-
-        // Валідація
-        if (isNaN(protein) || protein < 15 || protein > 130) {
-            alert("Будь ласка, введіть коректний рівень загального білка (г/л)");
-            return;
-        }
-        if (isNaN(glucose) || glucose < 1 || glucose > 35) {
-            alert("Будь ласка, введіть коректний рівень глюкози (ммоль/л)");
-            return;
-        }
-
-        let R;   // загальний ризик (основний показник)
-        let formulaName = "";
-
+        if (isNaN(protein) || protein < 15 || protein > 130) { alert("Коректний білок (15-130 г/л)"); return; }
+        if (isNaN(glucose) || glucose < 1 || glucose > 35) { alert("Коректна глюкоза (1-35 ммоль/л)"); return; }
+        let R, formulaName;
         if (period === "1-3") {
-            // Р1-3 = 0,71 - 0,013×білок + 0,099×глюкоза
             R = 0.71 - 0.013 * protein + 0.099 * glucose;
             formulaName = "Р1-3 (1–3 доба)";
         } else {
-            // Р10-14 = 0,610 - 0,009×білок + 0,085×глюкоза
             R = 0.610 - 0.009 * protein + 0.085 * glucose;
             formulaName = "Р10-14 (10–14 доба)";
         }
-
-        // Індивідуальний ризик (додатковий)
         const percentRisk = individualRiskPercent(R);
         const isHigh = (R > 0.5);
-        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Невисокий ризик";
+        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Низький ризик";
         const riskClass = isHigh ? "risk-high" : "risk-low";
-
         const resultHtml = `
-            <div class="result-row">
-                <span class="result-label">📊 Загальний ризик (${formulaName}):</span>
-                <span class="result-value">${R.toFixed(4)}</span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">🩺 Висновок за Р:</span>
-                <span class="result-value"><span class="risk-badge ${riskClass}">${riskLabel}</span></span>
-            </div>
-            <div class="result-row">
-                <span class="result-label">➕ Додатково – індивідуальний ризик (Рі):</span>
-                <span class="result-value">${percentRisk.toFixed(1)}%</span>
-            </div>
+            <div class="result-row"><span class="result-label">📊 Загальний ризик (${formulaName}):</span><span class="result-value">${R.toFixed(4)}</span></div>
+            <div class="result-row"><span class="result-label">🩺 Висновок за Р:</span><span class="result-value"><span class="risk-badge ${riskClass}">${riskLabel}</span></span></div>
+            <div class="result-row"><span class="result-label">➕ Додатково – індивідуальний ризик (Рі):</span><span class="result-value">${percentRisk.toFixed(1)}%</span></div>
         `;
-
-        const resultDiv = document.getElementById('resultBlock');
         document.getElementById('resultContent').innerHTML = resultHtml;
-        resultDiv.classList.remove('hidden');
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        let decisionHtml = '';
+        if (isHigh) {
+            decisionHtml = `<div class="decision-support">
+                <strong>📋 Рекомендації при високому ризику (Р > 0.5):</strong><br>
+                • Забезпечити моніторинг ЕКГ (добове холтерівське моніторування за можливості).<br>
+                • Контроль тропоніну І та натрійуретичного пептиду (NT-proBNP).<br>
+                • Розглянути ехокардіографію для оцінки скоротливості міокарда.<br>
+                • Метаболічна підтримка (корекція глікемії, білкового обміну, антиоксидантна терапія).<br>
+                • Профілактика тромбоемболічних ускладнень (за відсутності протипоказань).<br>
+                • Спостереження лікаря-терапевта (кардіолога) впродовж перших 3 місяців після травми.
+            </div>`;
+        }
+        document.getElementById('decisionBlock').innerHTML = decisionHtml;
+        document.getElementById('resultBlock').classList.remove('hidden');
+        document.getElementById('resultBlock').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     document.getElementById('calcBtn').addEventListener('click', calculateRisk);
+    document.getElementById('pdfBtn').addEventListener('click', generatePDF);
 </script>
 </body>
 </html>
