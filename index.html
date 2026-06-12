@@ -111,7 +111,7 @@
         }
         const percentRisk = individualRiskPercent(R);
         const isHigh = (R > 0.5);
-        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Невисокий ризик";
+        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Низький ризик";
         const riskClass = isHigh ? "risk-high" : "risk-low";
         const resultHtml = `
             <div class="result-row"><span class="result-label">📊 Загальний ризик (${formulaName}):</span><span class="result-value">${R.toFixed(4)}</span></div>
@@ -144,8 +144,12 @@
         }
         const patientName = document.getElementById('patientName').value.trim() || '___________________';
         const period = document.querySelector('input[name="period"]:checked').value;
-        let protein = parseFloat(document.getElementById('protein').value);
-        let glucose = parseFloat(document.getElementById('glucose').value);
+        
+        // Коректне зчитування чисел із заміною коми на крапку
+        let proteinRaw = document.getElementById('protein').value.replace(',', '.');
+        let glucoseRaw = document.getElementById('glucose').value.replace(',', '.');
+        let protein = parseFloat(proteinRaw);
+        let glucose = parseFloat(glucoseRaw);
         if (isNaN(protein)) protein = 0;
         if (isNaN(glucose)) glucose = 0;
         
@@ -160,7 +164,8 @@
             percentRisk = 100 / (1 + Math.pow(2.71828182846, -R));
         }
         const isHigh = (R > 0.5);
-        const riskLabel = isHigh ? "Високий ризик" : "Невисокий ризик";
+        const riskLabel = isHigh ? "Високий ризик" : "Низький ризик";
+        
         const currentDate = new Date().toLocaleDateString('uk-UA') + ' ' + new Date().toLocaleTimeString('uk-UA');
         
         const printWindow = window.open('', '_blank');
