@@ -111,7 +111,7 @@
         }
         const percentRisk = individualRiskPercent(R);
         const isHigh = (R > 0.5);
-        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Низький ризик";
+        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Невисокий ризик";
         const riskClass = isHigh ? "risk-high" : "risk-low";
         const resultHtml = `
             <div class="result-row"><span class="result-label">📊 Загальний ризик (${formulaName}):</span><span class="result-value">${R.toFixed(4)}</span></div>
