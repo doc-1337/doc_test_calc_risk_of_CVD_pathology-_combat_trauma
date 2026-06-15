@@ -3,15 +3,16 @@
   "short_name": "Ризик ССС",
   "description": "Розрахунок загального та індивідуального ризику вторинної патології ССС у постраждалих з бойовою травмою (за методикою Sydorova et al., 2020)",
   "start_url": "./index.html",
+  "scope": ".",
   "display": "standalone",
   "theme_color": "#b13c28",
   "background_color": "#f0f4f9",
   "orientation": "portrait",
   "icons": [
-    { "src": "icons/launchericon-72x72.png", "sizes": "72x72", "type": "image/png" },
-    { "src": "icons/launchericon-96x96.png", "sizes": "96x96", "type": "image/png" },
-    { "src": "icons/launchericon-144x144.png", "sizes": "144x144", "type": "image/png" },
-    { "src": "icons/launchericon-192x192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icons/launchericon-512x512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "./icons/launchericon-72x72.png", "sizes": "72x72", "type": "image/png" },
+    { "src": "./icons/launchericon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "./icons/launchericon-144x144.png", "sizes": "144x144", "type": "image/png" },
+    { "src": "./icons/launchericon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icons/launchericon-512x512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
