@@ -76,7 +76,7 @@
         </div>
 
         <div class="footnote">
-            ⚕️ Джерело: Сидорова Н. М. та співавт. World Science. 2020;2(54):35-42.<br>
+            ⚕️ Джерело: Сидорова Н. М. та співавт. World Science. 2020;2(54):35-42. <a href="https://doi.org/10.31435/rsglobal_ws/28022020/6928" target="_blank">DOI</a><br>
             ▶ Під вторинною патологією ССС маються на увазі: порушення ритму, тромбоемболічні ускладнення, міокардит, гострий коронарний синдром метаболічного ґенезу, стрес-індукована кардіоміопатія.<br>
             ▶ Загальний ризик (Р) > 0,5 вказує на високий ризик.<br>
             ▶ Індивідуальний ризик (%) = 1 / (1 + е⁻Р) – додатковий показник.
@@ -111,7 +111,7 @@
         }
         const percentRisk = individualRiskPercent(R);
         const isHigh = (R > 0.5);
-        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Низький ризик";
+        const riskLabel = isHigh ? "🔴 Високий ризик" : "🟢 Невисокий ризик";
         const riskClass = isHigh ? "risk-high" : "risk-low";
         const resultHtml = `
             <div class="result-row"><span class="result-label">📊 Загальний ризик (${formulaName}):</span><span class="result-value">${R.toFixed(4)}</span></div>
@@ -164,7 +164,7 @@
             percentRisk = 100 / (1 + Math.pow(2.71828182846, -R));
         }
         const isHigh = (R > 0.5);
-        const riskLabel = isHigh ? "Високий ризик" : "Низький ризик";
+        const riskLabel = isHigh ? "Високий ризик" : "Невисокий ризик";
         
         const currentDate = new Date().toLocaleDateString('uk-UA') + ' ' + new Date().toLocaleTimeString('uk-UA');
         
